@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Conference Navigator</title>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+      <script src="app.js" type="text/javascript" >
+          
+          
+        
+      </script>
+  </head>
+  <body ng-app="confNavApp" class="container">
+      <h2 style="color:blue;text-align:center;padding-top:50px;">Conference Navigator</h2>
+      <div ng-controller="loginCntrl" style="width: 600px;margin: 0 auto;">
+          <div class="alert {{alertClass}} alert-dismissible" ng-show="alertMsg">
+              <a href="#" class="close" ng-click="closeMsg()" aria-label="close">&times;</a>
+              {{alertMessage}}              
+          </div>
+          <div class="panel panel-default" ng-show="loginForm">
+              <div class="panel-heading">
+                  <h4 class="panel-title">LOGIN</h4>
+              </div>
+              <div class="panel-body">
+                  <form method="post" ng-submit="submitLogin()">
+                      <div class="form-group">
+                          <label>Enter your Email</label>
+                          <input type="email" name="email" ng-model="loginData.email" class="form-control"/>
+                      </div>
+                      <div class="form-group">
+                          <label>Enter your Password</label>
+                          <input type="password" name="password" ng-model="loginData.password" class="form-control"/>
+                      </div>
+                      <div class="form-group" align="center">
+                          <input type="submit" name="login" class="btn btn-primary" value="Login" />
+                          <input type="button" name="registerLink" class="btn btn-primary btn-link" ng-click="showRegister()" value="Register"/>
+                      </div>
+                  </form>
+              </div>
+          </div>
+      </div>
+      <div ng-controller="registerCntrl" style="width: 600px;margin:0 auto;">
+          <div class="panel panel-default" ng-show="registerForm">
+              <div class="panel-heading">
+                  <h4 class="panel-title">REGISTER</h4>
+              </div>
+              <div class="panel-body">
+                  <form method="post" ng-submit="submitRegister()">
+                      <div class="form-group">
+                          <label>Enter your Name</label>
+                          <input type="text" name="username" ng-model="registerData.name" class="form-control"/>
+                      </div>
+                      <div class="form-group">
+                          <label>Enter your Organisation</label>
+                          <input type="text" name="organisation" ng-model="registerData.org" class="form-control"/>
+                      </div>
+                      <div class="form-group">
+                          <label>Enter your Designation</label>
+                          <input type="text" name="designation" ng-model="registerData.des" class="form-control"/>
+                      </div>
+                      <div class="form-group">
+                          <label>Enter your Email</label>
+                          <input type="email" name="email" ng-model="registerData.email" class="form-control"/>
+                      </div>
+                      <div class="form-group">
+                          <label>Enter your Password</label>
+                          <input type="password" name="password" ng-model="registerData.pass" class="form-control"/>
+                      </div>
+                      <div class="form-group" align="center">
+                          <input type="submit" name="register" class="btn btn-primary" value="Register" />
+                          <input type="button" name="loginLink" class="btn btn-primary btn-link" ng-click="showLogin()" value="Login"/>
+                      </div>
+                  </form>
+              </div>
+          </div>
+      </div>
+  </body>
+</html>
